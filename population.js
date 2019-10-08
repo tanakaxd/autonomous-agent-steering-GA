@@ -9,6 +9,7 @@ class Population{
 		}
 		this.matingpool = [];
 		this.generation = 0;
+		this.average;
 	}
 
 	evaluate(){
@@ -33,7 +34,7 @@ class Population{
 		this.animals = nextGeneration;
 
 		this.matingpool = [];
-
+		this.generation++;
 	}
 
 	run(){
@@ -67,6 +68,7 @@ class Population{
 		for (let key in sum){
 			sum[key] /= this.animals.length;
 		}
+		this.average = sum;
 		console.log(sum);
 	}
 }

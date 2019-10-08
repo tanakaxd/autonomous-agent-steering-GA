@@ -13,6 +13,7 @@ let mudr = 250;
 let mutationRate = 0.01;
 let muddiness = 0.1;
 let G = 1;
+let genp;
 
 function preload(){
 	img = loadImage("kaeru.png");
@@ -49,7 +50,7 @@ function setup() {
 
 	population = new Population();
 	population.showAnimalsPersonality()
-	let genp = createP(population.generation);
+	genp = createP("Generation: " + population.generation + "<br>");
 
 
 	// animals.push(new Animal(500,200));
@@ -65,6 +66,7 @@ function draw() {
 		population.selection();
 		population.showAnimalsPersonality();
 		count = 0;
+		genp.html("Generation: " + population.generation);
 	}
 
 	for(let path of paths){
