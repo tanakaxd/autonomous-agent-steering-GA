@@ -12,7 +12,7 @@ let mud;
 let mudr = 250;
 let mutationRate = 0.03;
 let muddiness = 0.1;
-let G = 1;
+let G = 0.6;
 let genp;
 
 function preload(){

@@ -148,6 +148,10 @@ class Animal{
 
 
 	calcDesiredForce(){
+		// 進もうとする力と抵抗になる力を分けて考えるべきか
+		// 進もうとする力のみmaxForceで制限をかける
+		// ただそもそも遺伝子でmaxForceという値を持っていることがおかしかもしれない
+		// 本来は種々の遺伝的要素によって、その総体として出力できる力が決まるべき
 		let sumForce = createVector(0,0);
 
 		// calling every elemental force functions
@@ -160,7 +164,9 @@ class Animal{
 
 		// calculate netforce
 		sumForce.add(trailForce).add(separateForce);
-		sumForce.limit(this.gene.maxForce);
+		let massCoefficient = (this.gene.mass/4);
+		// sumForce.limit(this.gene.maxForce);
+		sumForce.limit(this.gene.maxForce*massCoefficient); //arbitrary calc
 
 		//muddy case
 		let d = p5.Vector.dist(this.pos,mud);
